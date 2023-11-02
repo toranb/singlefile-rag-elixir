@@ -1,0 +1,38 @@
+## Install asdf
+brew install asdf
+
+## Include a few tweaks in your zshrc to build erlang later
+echo "export KERL_CONFIGURE_OPTIONS=\"--without-javac --with-ssl=/opt/homebrew/Cellar/openssl@1.1/1.1.1t\"" >> ~/.zshrc
+echo "source /opt/homebrew/opt/asdf/libexec/asdf.sh" >> ~/.zshrc
+
+note: be sure to verify the openssl version you see above exists on the filesystem
+
+## Install elixir
+asdf plugin add erlang
+asdf plugin add elixir
+asdf install
+
+## Install postgres 15 for macOS
+https://postgresapp.com/downloads.html
+
+## Install pgvector extension
+git clone --branch v0.5.0 https://github.com/pgvector/pgvector.git
+cd pgvector
+make
+make install
+
+note: be sure to open settings, privacy and security, app management and give iterm 2 access else make install fails with error 71
+
+## signup for replicate to run the LLM
+https://replicate.com/
+
+## export the key so the app can use this LLM at runtime
+export REPLICATE_API_TOKEN=abc123
+
+### running the app
+elixir example.exs
+
+http://localhost:8080
+
+### Ask a question in the top bar
+why is my computer so slow right now?
