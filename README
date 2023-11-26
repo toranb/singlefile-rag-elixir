@@ -15,6 +15,9 @@ asdf install
 ## Install postgres 15 for macOS
 https://postgresapp.com/downloads.html
 
+## Put this postgres install on the path
+export PATH="/Applications/Postgres.app/Contents/Versions/15/bin:$PATH"
+
 ## Install pgvector extension
 git clone --branch v0.5.0 https://github.com/pgvector/pgvector.git
 cd pgvector
